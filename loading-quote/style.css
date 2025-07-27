@@ -1,0 +1,132 @@
+.loading-screen-quote,
+.loading-screen-quote * {
+  box-sizing: border-box;
+}
+.loading-screen-quote {
+  background: var(--mindful-brown-white, #ffffff);
+  flex-shrink: 0;
+  height: 812px;
+  position: relative;
+  overflow: hidden;
+}
+.i-phone-x-or-newer {
+  width: 100%;
+  height: 44px;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  top: 0px;
+  overflow: hidden;
+}
+.right-side {
+  position: absolute;
+  inset: 0;
+}
+.battery {
+  width: 24.33px;
+  height: 11.33px;
+  position: absolute;
+  right: 14.67px;
+  top: 17.33px;
+  overflow: visible;
+}
+.wifi {
+  width: 15.27px;
+  height: 10.97px;
+  position: absolute;
+  left: 315.69px;
+  top: 17.33px;
+  overflow: visible;
+}
+.mobile-signal {
+  width: 17px;
+  height: 10.67px;
+  position: absolute;
+  left: 293.67px;
+  top: 17.67px;
+  overflow: visible;
+}
+.left-side {
+  position: absolute;
+  inset: 0;
+}
+.time {
+  width: 54px;
+  height: 21px;
+  position: absolute;
+  left: 21px;
+  top: 12px;
+}
+.time2 {
+  border-radius: 32px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 50%;
+}
+.good-mind-new-logo-6 {
+  flex-shrink: 0;
+  width: 121.6px;
+  height: 113.14px;
+  position: relative;
+  object-fit: cover;
+  aspect-ratio: 121.6/113.14;
+}
+.in-the-midst-of-winter-i-found-there-was-within-me-an-invincible-summer {
+  color: var(--serenity-green-50, #16572e);
+  text-align: center;
+  font-family: var(
+    --heading-xs-extrabold-font-family,
+    "Urbanist-ExtraBold",
+    sans-serif
+  );
+  font-size: var(--heading-xs-extrabold-font-size, 24px);
+  line-height: var(--heading-xs-extrabold-line-height, 32px);
+  letter-spacing: var(--heading-xs-extrabold-letter-spacing, -0.02em);
+  font-weight: var(--heading-xs-extrabold-font-weight, 800);
+  position: relative;
+  width: 335px;
+}
+.albert-camus {
+  color: var(--serenity-green-50, #16572e);
+  text-align: center;
+  font-family: var(--label-md-font-family, "Urbanist-ExtraBold", sans-serif);
+  font-size: var(--label-md-font-size, 14px);
+  letter-spacing: var(--label-md-letter-spacing, 0.1em);
+  font-weight: var(--label-md-font-weight, 800);
+  text-transform: uppercase;
+  position: relative;
+  width: 341px;
+}
+.home-indicator {
+  width: 375px;
+  height: 34px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+.home-indicator2 {
+  background: var(--mindful-brown-80, #4b3425);
+  border-radius: 100px;
+  width: 134px;
+  height: 5px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  bottom: 8px;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="loading-screen-progress">
+    <img class="logomark" src="logomark0.svg" />
+    <div class="_99">
+      <span>
+        <span class="_99-span" id="progressCounter">0</span>
+        <span class="_99-span2">%</span>
+      </span>
+    </div>
+  </div>
+  
+  <script>
+    let progress = 0;
+    let progressInterval;
+    let hasStarted = false;
+    
+    function startProgress() {
+      if (hasStarted) return; // Prevent multiple starts
+      
+      hasStarted = true;
+      progress = 0;
+      updateProgress();
+      
+      progressInterval = setInterval(() => {
+        progress += 1;
+        updateProgress();
+        
+        if (progress >= 99) {
+          clearInterval(progressInterval);
+          progress = 99; // Ensure it stops at exactly 99
+          updateProgress();
+        }
+      }, 30); // Update every 30ms for smooth animation (3000ms / 99 = ~30ms)
+    }
+    
+    function updateProgress() {
+      const progressCounter = document.getElementById('progressCounter');
+      if (progressCounter) {
+        progressCounter.textContent = progress;
+      }
+    }
+    
+    // Only listen for messages from parent window to start progress
+    window.addEventListener('message', function(event) {
+      if (event.data === 'startProgress') {
+        startProgress();
+      }
+    });
+  </script>
+</body>
+</html>

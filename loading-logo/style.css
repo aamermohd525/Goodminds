@@ -1,0 +1,116 @@
+.loading-screen-logo,
+.loading-screen-logo * {
+  box-sizing: border-box;
+}
+.loading-screen-logo {
+  background: var(--mindful-brown-10, #f7f4f2);
+  display: flex;
+  flex-direction: column;
+  gap: 290px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  height: 812px;
+  position: relative;
+  overflow: hidden;
+}
+.i-phone-x-or-newer {
+  flex-shrink: 0;
+  width: 375px;
+  height: 44px;
+  position: relative;
+  overflow: hidden;
+}
+.right-side {
+  position: absolute;
+  inset: 0;
+}
+.battery {
+  width: 24.33px;
+  height: 11.33px;
+  position: absolute;
+  right: 14.67px;
+  top: 17.33px;
+  overflow: visible;
+}
+.wifi {
+  width: 15.27px;
+  height: 10.97px;
+  position: absolute;
+  left: 315.69px;
+  top: 17.33px;
+  overflow: visible;
+}
+.mobile-signal {
+  width: 17px;
+  height: 10.67px;
+  position: absolute;
+  left: 293.67px;
+  top: 17.67px;
+  overflow: visible;
+}
+.left-side {
+  position: absolute;
+  inset: 0;
+}
+.time {
+  width: 54px;
+  height: 21px;
+  position: absolute;
+  left: 21px;
+  top: 12px;
+}
+.time2 {
+  border-radius: 32px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.group-1 {
+  flex-shrink: 0;
+  width: 172.89px;
+  height: 153.85px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.good-mind-new-logo-6 {
+  width: 121.6px;
+  height: 113.14px;
+  position: relative;
+  object-fit: cover;
+  aspect-ratio: 121.6/113.14;
+}
+.good-mind-new-logo-62 {
+  width: 172.89px;
+  height: 40.71px;
+  position: relative;
+  object-fit: cover;
+  aspect-ratio: 172.89/40.71;
+}
+.home-indicator {
+  flex-shrink: 0;
+  width: 375px;
+  height: 34px;
+  position: relative;
+}
+.home-indicator2 {
+  background: var(--mindful-brown-80, #4b3425);
+  border-radius: 100px;
+  width: 134px;
+  height: 5px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  bottom: 8px;
+}

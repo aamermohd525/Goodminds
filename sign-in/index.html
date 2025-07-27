@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="sign-in-sign-up">
+    <div class="vector"></div>
+    <img class="solid-menu" src="solid-menu0.svg" />
+    <div class="frame">
+      <div class="don-t-have-an-account-sign-in" id="signUpBtn">
+        <span>
+          <span class="don-t-have-an-account-sign-in-span">
+            Don’t have an account?
+          </span>
+          <span class="don-t-have-an-account-sign-in-span2">Sign Up.</span>
+        </span>
+      </div>
+      <div class="forgot-password">Forgot Password</div>
+    </div>
+    <div class="frame2">
+      <div class="sign-in-to-freud-ai">Sign In To GoodMind</div>
+      <div class="frame3">
+        <div class="frame4">
+          <div class="email-address">Email Address</div>
+          <div class="content" id="emailContainer">
+            <div class="content2">
+              <div class="text">
+                <div class="duotone-email">
+                  <div class="vector2"></div>
+                  <div class="vector3"></div>
+                </div>
+                <input type="email" id="emailInput" class="text2-input" placeholder="Enter your email..." />
+              </div>
+              <div class="validation-icon" id="emailValidation"></div>
+            </div>
+          </div>
+          <div class="error-message" id="emailError"></div>
+        </div>
+        <div class="frame4">
+          <div class="email-address">Password</div>
+          <div class="content3" id="passwordContainer">
+            <div class="content2">
+              <div class="text">
+                <img class="monotone-lock" src="monotone-lock0.svg" />
+                <input type="password" id="passwordInput" class="text3-input" placeholder="Enter your password..." />
+              </div>
+              <img class="solid-anatomy-eye" src="solid-anatomy-eye0.svg" id="passwordToggle" />
+            </div>
+          </div>
+          <div class="error-message" id="passwordError"></div>
+        </div>
+        <div class="button-primary-icon" id="signInButton">
+          <div class="content4">
+            <div class="text4" id="signInText">Sign In</div>
+            <img
+              class="monotone-arrow-right-sm"
+              src="monotone-arrow-right-sm0.svg"
+              id="signInArrow"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="frame5">
+        <div class="frame6">
+          <img class="frame7" src="frame7.svg" />
+        </div>
+        <div class="frame6">
+          <img class="frame8" src="frame9.svg" />
+        </div>
+        <div class="frame6">
+          <img class="frame9" src="frame11.svg" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Form validation and functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailInput = document.getElementById('emailInput');
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordToggle = document.getElementById('passwordToggle');
+      const signInButton = document.getElementById('signInButton');
+      const emailValidation = document.getElementById('emailValidation');
+      const passwordValidation = document.getElementById('passwordValidation');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const signUpBtn = document.getElementById('signUpBtn');
+
+      // Email validation
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      // Password validation
+      function validatePassword(password) {
+        return password.length >= 6;
+      }
+
+      // Show validation icon
+      function showValidation(element, isValid, message) {
+        element.classList.remove('valid', 'invalid');
+        element.classList.add(isValid ? 'valid' : 'invalid');
+        element.textContent = isValid ? '✓' : '✗';
+      }
+
+      // Show error message
+      function showError(errorElement, message) {
+        errorElement.textContent = message;
+        errorElement.classList.add('show');
+      }
+
+      // Hide error message
+      function hideError(errorElement) {
+        errorElement.classList.remove('show');
+      }
+
+      // Email input validation
+      emailInput.addEventListener('input', function() {
+        const email = this.value.trim();
+        if (email === '') {
+          emailValidation.classList.remove('valid', 'invalid');
+          hideError(emailError);
+        } else if (validateEmail(email)) {
+          showValidation(emailValidation, true);
+          hideError(emailError);
+        } else {
+          showValidation(emailValidation, false);
+          showError(emailError, 'Please enter a valid email address');
+        }
+      });
+
+      // Password input validation
+      passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        if (password === '') {
+          passwordValidation.classList.remove('valid', 'invalid');
+          hideError(passwordError);
+        } else if (validatePassword(password)) {
+          showValidation(passwordValidation, true);
+          hideError(passwordError);
+        } else {
+          showValidation(passwordValidation, false);
+          showError(passwordError, 'Password must be at least 6 characters');
+        }
+      });
+
+      // Password toggle
+      passwordToggle.addEventListener('click', function() {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+        this.style.opacity = type === 'password' ? '1' : '0.5';
+      });
+
+      // Sign In button functionality
+      signInButton.addEventListener('click', function() {
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        // Validate form
+        if (!email || !validateEmail(email)) {
+          showError(emailError, 'Please enter a valid email address');
+          return;
+        }
+
+        if (!password || !validatePassword(password)) {
+          showError(passwordError, 'Password must be at least 6 characters');
+          return;
+        }
+
+        // Show loading state
+        signInButton.classList.add('loading');
+
+        // Simulate API call
+        setTimeout(() => {
+          // Check if user exists in registered users
+          const existingUsers = JSON.parse(localStorage.getItem('goodmindsUsers') || '[]');
+          const userExists = existingUsers.some(user => user.email === email);
+          
+          if (!userExists) {
+            // User doesn't exist, show error
+            signInButton.classList.remove('loading');
+            showError(emailError, 'Email not found. Please sign up first.');
+            return;
+          }
+          
+          // Check password (in real app, this would be hashed comparison)
+          const user = existingUsers.find(user => user.email === email);
+          if (user.password !== password) {
+            signInButton.classList.remove('loading');
+            showError(passwordError, 'Incorrect password. Please try again.');
+            return;
+          }
+
+          // Store user data in localStorage
+          const userData = {
+            email: email,
+            isLoggedIn: true,
+            loginTime: new Date().toISOString()
+          };
+          localStorage.setItem('goodmindsUser', JSON.stringify(userData));
+
+          // Show success and redirect
+          signInButton.classList.remove('loading');
+          signInButton.classList.add('success');
+          signInButton.querySelector('.text4').textContent = 'Success!';
+          
+          setTimeout(() => {
+            // Redirect to main app (for now, go to welcome-screen4)
+            window.location.href = '../welcome-screen4/index.html';
+          }, 1000);
+        }, 2000);
+      });
+
+      // Sign Up navigation
+      if (signUpBtn) {
+        signUpBtn.addEventListener('click', function() {
+          window.location.href = '../sign-up/index.html';
+        });
+      }
+
+      // Load saved email if exists
+      const savedUser = localStorage.getItem('goodmindsUser');
+      if (savedUser) {
+        const user = JSON.parse(savedUser);
+        if (user.email) {
+          emailInput.value = user.email;
+          emailInput.dispatchEvent(new Event('input'));
+        }
+      }
+    });
+  </script>
+</body>
+</html>

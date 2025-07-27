@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="welcome-screen">
+    <div class="frame">
+      <div class="frame2">
+        <img class="good-mind-new-logo-6" src="good-mind-new-logo-60.png" />
+        <div class="frame3">
+          <div class="welcome-to-the-ultimate-freud-ui-kit">
+            <span>
+              <span class="welcome-to-the-ultimate-freud-ui-kit-span">
+                Welcome to
+              </span>
+              <span class="welcome-to-the-ultimate-freud-ui-kit-span2">
+                GoodMind
+              </span>
+            </span>
+          </div>
+          <div
+            class="your-mindful-mental-health-ai-companion-for-everyone-anywhere"
+          >
+            Start your journey to better mental health with tools, support, and
+            care designed just for you. 🍃
+          </div>
+        </div>
+      </div>
+      <div class="frame4"></div>
+      <div class="button-primary-icon" id="getStartedBtn">
+        <div class="content">
+          <div class="text">Get Started</div>
+          <img
+            class="monotone-arrow-right-sm"
+            src="monotone-arrow-right-sm0.svg"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="already-have-an-account-sign-in" id="signInBtn">
+      <span>
+        <span class="already-have-an-account-sign-in-span">
+          Already have an account?
+        </span>
+        <span class="already-have-an-account-sign-in-span2">Sign In.</span>
+      </span>
+    </div>
+  </div>
+  
+  <script>
+    // Add click functionality to the Get Started button
+    document.addEventListener('DOMContentLoaded', function() {
+      const getStartedBtn = document.getElementById('getStartedBtn');
+      
+      if (getStartedBtn) {
+        getStartedBtn.addEventListener('click', function() {
+          // Navigate directly to welcome-screen1 (not in iframe)
+          window.location.href = '../welcome-sccreen1/index.html';
+        });
+      }
+      
+      // Add click functionality to the Sign In button
+      const signInBtn = document.getElementById('signInBtn');
+      
+      if (signInBtn) {
+        signInBtn.addEventListener('click', function() {
+          // Navigate to sign-in page
+          window.location.href = '../sign-in/index.html';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

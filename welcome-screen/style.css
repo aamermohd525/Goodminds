@@ -1,0 +1,229 @@
+.welcome-screen,
+.welcome-screen * {
+  box-sizing: border-box;
+}
+.welcome-screen {
+  background: var(--mindful-brown-10, #f7f4f2);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  height: 812px;
+  position: relative;
+  overflow: hidden;
+}
+.i-phone-x-or-newer {
+  flex-shrink: 0;
+  width: 375px;
+  height: 44px;
+  position: relative;
+  overflow: hidden;
+}
+.right-side {
+  position: absolute;
+  inset: 0;
+}
+.battery {
+  width: 24.33px;
+  height: 11.33px;
+  position: absolute;
+  right: 14.67px;
+  top: 17.33px;
+  overflow: visible;
+}
+.wifi {
+  width: 15.27px;
+  height: 10.97px;
+  position: absolute;
+  left: 315.69px;
+  top: 17.33px;
+  overflow: visible;
+}
+.mobile-signal {
+  width: 17px;
+  height: 10.67px;
+  position: absolute;
+  left: 293.67px;
+  top: 17.67px;
+  overflow: visible;
+}
+.left-side {
+  position: absolute;
+  inset: 0;
+}
+.time {
+  width: 54px;
+  height: 21px;
+  position: absolute;
+  left: 21px;
+  top: 12px;
+}
+.time2 {
+  border-radius: 32px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  overflow: visible;
+}
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.frame2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.good-mind-new-logo-6 {
+  flex-shrink: 0;
+  width: 121.6px;
+  height: 113.14px;
+  position: relative;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  aspect-ratio: 121.6/113.14;
+}
+.frame3 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 343px;
+  position: relative;
+}
+.welcome-to-the-ultimate-freud-ui-kit {
+  text-align: center;
+  font-family: var(
+    --heading-sm-extrabold-font-family,
+    "Urbanist-ExtraBold",
+    sans-serif
+  );
+  font-size: var(--heading-sm-extrabold-font-size, 30px);
+  line-height: var(--heading-sm-extrabold-line-height, 38px);
+  letter-spacing: var(--heading-sm-extrabold-letter-spacing, -0.02em);
+  font-weight: var(--heading-sm-extrabold-font-weight, 800);
+  position: relative;
+  align-self: stretch;
+}
+.welcome-to-the-ultimate-freud-ui-kit-span {
+  color: var(--mindful-brown-80, #4b3425);
+}
+.welcome-to-the-ultimate-freud-ui-kit-span2 {
+  color: var(--serenity-green-50, #16572e);
+}
+.your-mindful-mental-health-ai-companion-for-everyone-anywhere {
+  color: var(--mindful-brown-100-alpha-64, rgba(31, 22, 15, 0.64));
+  text-align: center;
+  font-family: var(--paragraph-lg-font-family, "Urbanist-Medium", sans-serif);
+  font-size: var(--paragraph-lg-font-size, 18px);
+  line-height: var(--paragraph-lg-line-height, 160%);
+  letter-spacing: var(--paragraph-lg-letter-spacing, -0.01em);
+  font-weight: var(--paragraph-lg-font-weight, 500);
+  position: relative;
+  align-self: stretch;
+}
+.frame4 {
+  background: var(--mindful-brown-white, #ffffff);
+  border-radius: 1234px;
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+.button-primary-icon {
+  background: var(--serenity-green-50, #16572e);
+  border-radius: 1000px;
+  padding: 16px 24px 16px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 56px;
+  position: relative;
+  cursor: pointer;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.text {
+  color: var(--mindful-brown-white, #ffffff);
+  text-align: left;
+  font-family: var(
+    --text-lg-extrabold-font-family,
+    "Urbanist-ExtraBold",
+    sans-serif
+  );
+  font-size: var(--text-lg-extrabold-font-size, 18px);
+  letter-spacing: var(--text-lg-extrabold-letter-spacing, -0.01em);
+  font-weight: var(--text-lg-extrabold-font-weight, 800);
+  position: relative;
+}
+.monotone-arrow-right-sm {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+.already-have-an-account-sign-in {
+  text-align: center;
+  font-family: "-", sans-serif;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  position: relative;
+  cursor: pointer;
+}
+.already-have-an-account-sign-in-span {
+  color: var(--mindful-brown-100-alpha-64, rgba(31, 22, 15, 0.64));
+  font-family: "Urbanist-Medium", sans-serif;
+  font-weight: 500;
+}
+.already-have-an-account-sign-in-span2 {
+  color: var(--empathy-orange-40, #fe814b);
+  font-family: "Urbanist-Bold", sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.home-indicator {
+  flex-shrink: 0;
+  width: 375px;
+  height: 34px;
+  position: relative;
+}
+.home-indicator2 {
+  background: var(--mindful-brown-80, #4b3425);
+  border-radius: 100px;
+  width: 134px;
+  height: 5px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  bottom: 8px;
+}
