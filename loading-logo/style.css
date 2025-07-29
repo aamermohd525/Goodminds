@@ -83,6 +83,41 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  animation: logo-entrance 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  box-shadow: 0 0 32px 0 rgba(200, 160, 100, 0.15), 0 0 0 0 transparent;
+}
+
+@keyframes logo-entrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 0 32px 0 rgba(200, 160, 100, 0.25);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 16px 0 rgba(200, 160, 100, 0.15);
+  }
+}
+
+.logo-exit {
+  animation: logo-exit 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes logo-exit {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.9);
+  }
 }
 .good-mind-new-logo-6 {
   width: 121.6px;

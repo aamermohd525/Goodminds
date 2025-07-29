@@ -50,7 +50,7 @@
           <span class="don-t-have-an-account-sign-in-span2">Sign Up.</span>
         </span>
       </div>
-      <div class="forgot-password">Forgot Password</div>
+      <div class="forgot-password" id="forgotPasswordBtn">Forgot Password</div>
     </div>
     <div class="frame2">
       <div class="sign-in-to-freud-ai">Sign In To GoodMind</div>
@@ -121,6 +121,7 @@
       const emailError = document.getElementById('emailError');
       const passwordError = document.getElementById('passwordError');
       const signUpBtn = document.getElementById('signUpBtn');
+      const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
 
       // Email validation
       function validateEmail(email) {
@@ -252,6 +253,13 @@
       if (signUpBtn) {
         signUpBtn.addEventListener('click', function() {
           window.location.href = '../sign-up/index.html';
+        });
+      }
+
+      // Forgot Password navigation
+      if (forgotPasswordBtn) {
+        forgotPasswordBtn.addEventListener('click', function() {
+          window.location.href = '../forget-screen/index.html';
         });
       }
 

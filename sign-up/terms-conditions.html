@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  
+  <style>
+   a, button, input, select, h1, h2, h3, h4, h5, * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+
+   .terms-page {
+     background: var(--mindful-brown-10, #f7f4f2);
+     min-height: 100vh;
+     position: relative;
+     overflow: hidden;
+   }
+
+   .terms-header {
+     background: var(--serenity-green-50, #16572e);
+     padding: 60px 20px 20px;
+     text-align: center;
+     position: relative;
+   }
+
+   .back-button {
+     position: absolute;
+     left: 20px;
+     top: 60px;
+     background: rgba(255, 255, 255, 0.2);
+     border-radius: 50%;
+     width: 40px;
+     height: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     transition: all 0.3s ease;
+   }
+
+   .back-button:hover {
+     background: rgba(255, 255, 255, 0.3);
+   }
+
+   .back-button img {
+     width: 20px;
+     height: 20px;
+     filter: brightness(0) invert(1);
+   }
+
+   .terms-title {
+     color: white;
+     font-family: "Urbanist-ExtraBold", sans-serif;
+     font-size: 24px;
+     font-weight: 800;
+     margin-bottom: 10px;
+   }
+
+   .terms-subtitle {
+     color: rgba(255, 255, 255, 0.8);
+     font-family: "Urbanist-Medium", sans-serif;
+     font-size: 14px;
+   }
+
+   .terms-content {
+     padding: 30px 20px;
+     max-width: 800px;
+     margin: 0 auto;
+   }
+
+   .terms-section {
+     background: white;
+     border-radius: 16px;
+     padding: 24px;
+     margin-bottom: 20px;
+     box-shadow: 0px 4px 12px rgba(31, 22, 15, 0.08);
+   }
+
+   .section-title {
+     color: var(--serenity-green-50, #16572e);
+     font-family: "Urbanist-Bold", sans-serif;
+     font-size: 18px;
+     font-weight: 700;
+     margin-bottom: 16px;
+   }
+
+   .section-text {
+     color: var(--mindful-brown-100, #1f160f);
+     font-family: "Urbanist-Medium", sans-serif;
+     font-size: 14px;
+     line-height: 1.6;
+     margin-bottom: 12px;
+   }
+
+   .section-text:last-child {
+     margin-bottom: 0;
+   }
+
+   .highlight {
+     color: var(--serenity-green-50, #16572e);
+     font-weight: 600;
+   }
+
+   .contact-info {
+     background: var(--serenity-green-10, rgba(22, 87, 46, 0.1));
+     border-radius: 12px;
+     padding: 20px;
+     margin-top: 20px;
+   }
+
+   .contact-title {
+     color: var(--serenity-green-50, #16572e);
+     font-family: "Urbanist-Bold", sans-serif;
+     font-size: 16px;
+     font-weight: 700;
+     margin-bottom: 12px;
+   }
+
+   .contact-text {
+     color: var(--mindful-brown-100, #1f160f);
+     font-family: "Urbanist-Medium", sans-serif;
+     font-size: 14px;
+     line-height: 1.6;
+   }
+  </style>
+  <title>Terms & Conditions - GoodMinds</title>
+</head>
+<body>
+  <div class="terms-page">
+    <div class="terms-header">
+      <div class="back-button" onclick="goBack()">
+        <img src="monotone-arrow-right-sm0.svg" alt="Back" style="transform: rotate(180deg);">
+      </div>
+      <div class="terms-title">Terms & Conditions</div>
+      <div class="terms-subtitle">Last updated: December 2024</div>
+    </div>
+    
+    <div class="terms-content">
+      <div class="terms-section">
+        <div class="section-title">1. Acceptance of Terms</div>
+        <div class="section-text">
+          By accessing and using the GoodMinds application, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+        </div>
+      </div>
+
+      <div class="terms-section">
+        <div class="section-title">2. Use License</div>
+        <div class="section-text">
+          Permission is granted to temporarily download one copy of the GoodMinds application for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+        </div>
+        <div class="section-text">
+          • Modify or copy the materials<br>
+          • Use the materials for any commercial purpose or for any public display<br>
+          • Attempt to reverse engineer any software contained in the application<br>
+          • Remove any copyright or other proprietary notations from the materials
+        </div>
+      </div>
+
+      <div class="terms-section">
+        <div class="section-title">3. Mental Health Disclaimer</div>
+        <div class="section-text">
+          <span class="highlight">Important:</span> GoodMinds is designed to provide mental health assessments and wellness tools for educational and self-awareness purposes only. The assessments and content provided are not intended to:
+        </div>
+        <div class="section-text">
+          • Replace professional medical advice, diagnosis, or treatment<br>
+          • Serve as a substitute for consultation with qualified mental health professionals<br>
+          • Provide emergency mental health services
+        </div>
+        <div class="section-text">
+          If you are experiencing a mental health crisis or emergency, please contact your local emergency services or a mental health crisis hotline immediately.
+        </div>
+      </div>
+
+      <div class="terms-section">
+        <div class="section-title">4. Privacy & Data Protection</div>
+        <div class="section-text">
+          We are committed to protecting your privacy. Your personal information and assessment data are stored locally on your device and are not transmitted to external servers without your explicit consent.
+        </div>
+        <div class="section-text">
+          Assessment results and personal data are stored securely and are only accessible to you. We do not share your personal information with third parties without your permission.
+        </div>
+      </div>
+
+      <div class="terms-section">
+        <div class="section-title">5. User Responsibilities</div>
+        <div class="section-text">
+          As a user of GoodMinds, you agree to:
+        </div>
+        <div class="section-text">
+          • Provide accurate and truthful information when using the assessments<br>
+          • Use the application responsibly and for its intended educational purposes<br>
+          • Not attempt to manipulate or falsify assessment results<br>
+          • Respect the privacy and confidentiality of any shared content
+        </div>
+      </div>
+
+      <div class="terms-section">
+        <div class="section-title">6. Limitation of Liability</div>
+        <div class="section-text">
+          GoodMinds and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the application.
+        </div>
+      </div>
+
+      <div class="terms-section">
+        <div class="section-title">7. Modifications to Terms</div>
+        <div class="section-text">
+          We reserve the right to modify these terms at any time. We will notify users of any material changes by updating the "Last updated" date at the top of this page. Your continued use of the application after such modifications constitutes acceptance of the updated terms.
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-title">Contact Information</div>
+        <div class="contact-text">
+          If you have any questions about these Terms & Conditions, please contact us at:<br>
+          Email: support@goodminds.app<br>
+          Website: www.goodminds.app
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html> 

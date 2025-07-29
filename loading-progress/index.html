@@ -42,10 +42,11 @@
     <img class="logomark" src="logomark0.svg" />
     <div class="_99">
       <span>
-        <span class="_99-span" id="progressCounter">0</span>
+        <span class="_99-span progress-shimmer" id="progressCounter">0</span>
         <span class="_99-span2">%</span>
       </span>
     </div>
+    <div id="confettiContainer"></div>
   </div>
   
   <script>
@@ -76,6 +77,37 @@
       const progressCounter = document.getElementById('progressCounter');
       if (progressCounter) {
         progressCounter.textContent = progress;
+        progressCounter.classList.remove('counter-pop');
+        void progressCounter.offsetWidth; // force reflow for animation
+        progressCounter.classList.add('counter-pop');
+      }
+      if (progress === 99) {
+        showConfetti();
+      }
+    }
+
+    function showConfetti() {
+      const confettiContainer = document.getElementById('confettiContainer');
+      if (!confettiContainer) return;
+      for (let i = 0; i < 24; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.position = 'absolute';
+        confetti.style.left = '50%';
+        confetti.style.top = '50%';
+        confetti.style.width = '8px';
+        confetti.style.height = '8px';
+        confetti.style.background = `hsl(${Math.random()*360},80%,60%)`;
+        confetti.style.borderRadius = '50%';
+        confetti.style.transform = `translate(-50%, -50%)`;
+        confetti.style.opacity = '0.8';
+        confettiContainer.appendChild(confetti);
+        setTimeout(() => {
+          confetti.style.transition = 'all 0.8s cubic-bezier(0.23,1,0.32,1)';
+          confetti.style.transform = `translate(-50%, -50%) translate(${Math.random()*160-80}px, ${Math.random()*-120-40}px) scale(${Math.random()*0.7+0.7})`;
+          confetti.style.opacity = '0';
+        }, 10);
+        setTimeout(() => confetti.remove(), 1200);
       }
     }
     

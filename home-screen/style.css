@@ -1555,6 +1555,7 @@ html, body {
     0px 62px 37px 0px rgba(75, 52, 37, 0.03),
     0px 110px 44px 0px rgba(75, 52, 37, 0.01),
     0px 172px 48px 0px rgba(75, 52, 37, 0);
+  border-radius: 0 0 24px 24px;
 }
 .frame34 {
   display: flex;

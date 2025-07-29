@@ -88,10 +88,44 @@
       const getStartedBtn = document.getElementById('getStartedBtn');
       
       if (getStartedBtn) {
-        getStartedBtn.addEventListener('click', function() {
-          // Navigate directly to welcome-screen1 (not in iframe)
-          window.location.href = '../welcome-sccreen1/index.html';
+        getStartedBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          getStartedBtn.classList.remove('pulse');
+          void getStartedBtn.offsetWidth;
+          getStartedBtn.classList.add('pulse');
+          showConfetti();
+          setTimeout(() => {
+            window.location.href = '../welcome-sccreen1/index.html';
+          }, 700);
         });
+      }
+      function showConfetti() {
+        let confettiContainer = document.getElementById('confettiContainer');
+        if (!confettiContainer) {
+          confettiContainer = document.createElement('div');
+          confettiContainer.id = 'confettiContainer';
+          document.body.appendChild(confettiContainer);
+        }
+        for (let i = 0; i < 28; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.position = 'absolute';
+          confetti.style.left = '50%';
+          confetti.style.top = '50%';
+          confetti.style.width = '8px';
+          confetti.style.height = '8px';
+          confetti.style.background = `hsl(${Math.random()*360},80%,60%)`;
+          confetti.style.borderRadius = '50%';
+          confetti.style.transform = `translate(-50%, -50%)`;
+          confetti.style.opacity = '0.8';
+          confettiContainer.appendChild(confetti);
+          setTimeout(() => {
+            confetti.style.transition = 'all 0.8s cubic-bezier(0.23,1,0.32,1)';
+            confetti.style.transform = `translate(-50%, -50%) translate(${Math.random()*180-90}px, ${Math.random()*-140-40}px) scale(${Math.random()*0.7+0.7})`;
+            confetti.style.opacity = '0';
+          }, 10);
+          setTimeout(() => confetti.remove(), 1200);
+        }
       }
       
       // Add click functionality to the Sign In button

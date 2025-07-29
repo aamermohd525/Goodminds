@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Forgot Password - GoodMinds</title>
+</head>
+<body>
+  <div class="sign-in-sign-up">
+    <div class="top-nav">
+      <button class="back-button" onclick="goBack()">
+        <svg class="back-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="frame">
+      <div class="frame2">
+        <div class="forgot-password">Forgot Password</div>
+        <div class="select-contact-details-where-you-want-to-reset-your-passwrod">
+          Select contact details where you want to reset your password.
+        </div>
+      </div>
+      <div class="frame3">
+        <div class="frame4" onclick="selectOption('password')">
+          <div class="content">
+            <img class="superego-lock" src="superego-lock0.svg" />
+            <div class="use-fa">Password</div>
+          </div>
+        </div>
+        <div class="frame5" onclick="selectOption('2fa')">
+          <div class="content">
+            <div class="superego-abstract">
+              <div class="vector2"></div>
+              <div class="vector3"></div>
+              <div class="vector4"></div>
+            </div>
+            <div class="use-fa">Use 2FA</div>
+          </div>
+        </div>
+        <div class="frame4" onclick="selectOption('google')">
+          <div class="content">
+            <img class="superego-time" src="superego-time0.svg" />
+            <div class="use-fa">Google Authenticator</div>
+          </div>
+        </div>
+      </div>
+      <div class="button-primary-icon" onclick="sendPassword()">
+        <div class="content2">
+          <div class="text">Send Password</div>
+          <img class="monotone-lock" src="monotone-lock0.svg" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    let selectedOption = null;
+
+    function goBack() {
+      window.history.back();
+    }
+
+    function selectOption(option) {
+      // Remove selection from all options
+      document.querySelectorAll('.frame4, .frame5').forEach(el => {
+        el.classList.remove('selected');
+      });
+      
+      // Add selection to clicked option
+      event.currentTarget.classList.add('selected');
+      selectedOption = option;
+    }
+
+    function sendPassword() {
+      if (!selectedOption) {
+        alert('Please select a password reset method first.');
+        return;
+      }
+      
+      // Show loading state
+      const button = document.querySelector('.button-primary-icon');
+      const originalText = button.querySelector('.text').textContent;
+      button.querySelector('.text').textContent = 'Sending...';
+      button.style.opacity = '0.7';
+      
+      // Simulate sending
+      setTimeout(() => {
+        alert(`Password reset instructions have been sent via ${selectedOption === 'password' ? 'email' : selectedOption === '2fa' ? '2FA' : 'Google Authenticator'}.`);
+        button.querySelector('.text').textContent = originalText;
+        button.style.opacity = '1';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -112,3 +112,38 @@
   translate: -50%;
   bottom: 8px;
 }
+
+.progress-shimmer {
+  background: linear-gradient(90deg, #b4c48d 25%, #e0e8d0 50%, #b4c48d 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite linear;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.counter-pop {
+  animation: counter-pop 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes counter-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.confetti {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  z-index: 100;
+}

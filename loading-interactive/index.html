@@ -144,6 +144,20 @@
         });
       });
       
+      // Squish effect on click/tap
+      bubbles.forEach(bubble => {
+        bubble.addEventListener('mousedown', () => {
+          bubble.classList.remove('squish');
+          void bubble.offsetWidth;
+          bubble.classList.add('squish');
+        });
+        bubble.addEventListener('touchstart', () => {
+          bubble.classList.remove('squish');
+          void bubble.offsetWidth;
+          bubble.classList.add('squish');
+        });
+      });
+      
       // Reset bubbles when touch/mouse leaves
       function resetBubbles() {
         bubbles.forEach(bubble => {

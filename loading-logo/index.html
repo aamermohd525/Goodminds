@@ -39,11 +39,18 @@
 </head>
 <body>
   <div class="loading-screen-logo">
-    <div class="group-1">
+    <div class="group-1" id="logoGroup">
       <img class="good-mind-new-logo-6" src="good-mind-new-logo-60.png" />
       <img class="good-mind-new-logo-62" src="good-mind-new-logo-61.png" />
     </div>
   </div>
-  
+  <script>
+    setTimeout(() => {
+      const logo = document.getElementById('logoGroup');
+      if (logo) {
+        logo.classList.add('logo-exit');
+      }
+    }, 1800); // Start exit animation just before navigation (2s)
+  </script>
 </body>
 </html>

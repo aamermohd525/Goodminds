@@ -55,6 +55,24 @@
         <div class="frame2">
           <div class="frame3">
             <div class="input-form-master">
+              <div class="email-address">Full Name</div>
+              <div class="content" id="fullNameContainer">
+                <div class="content2">
+                  <div class="text">
+                    <div class="monotone-email">
+                      <div class="vector2"></div>
+                      <div class="vector3"></div>
+                    </div>
+                    <input type="text" id="fullNameInput" class="text2-input" placeholder="Enter your full name..." />
+                  </div>
+                  <div class="validation-icon" id="fullNameValidation"></div>
+                </div>
+              </div>
+            </div>
+            <div class="error-message" id="fullNameError"></div>
+          </div>
+          <div class="frame3">
+            <div class="input-form-master">
               <div class="email-address">Email Address</div>
               <div class="content" id="emailContainer">
                 <div class="content2">
@@ -123,12 +141,15 @@
   <script>
     // Form validation and functionality for sign-up
     document.addEventListener('DOMContentLoaded', function() {
+      const fullNameInput = document.getElementById('fullNameInput');
       const emailInput = document.getElementById('emailInput');
       const passwordInput = document.getElementById('passwordInput');
       const passwordToggle = document.getElementById('passwordToggle');
       const signUpButton = document.getElementById('signUpButton');
+      const fullNameValidation = document.getElementById('fullNameValidation');
       const emailValidation = document.getElementById('emailValidation');
       const passwordValidation = document.getElementById('passwordValidation');
+      const fullNameError = document.getElementById('fullNameError');
       const emailError = document.getElementById('emailError');
       const passwordError = document.getElementById('passwordError');
       const passwordStrength = document.getElementById('passwordStrength');
@@ -200,6 +221,22 @@
         errorElement.classList.remove('show');
       }
 
+      // Full Name validation
+      fullNameInput.addEventListener('input', function() {
+        const fullName = this.value.trim();
+        if (fullName === '') {
+          fullNameValidation.classList.remove('valid', 'invalid');
+          hideError(fullNameError);
+        } else if (fullName.length >= 2) {
+          showValidation(fullNameValidation, true);
+          hideError(fullNameError);
+        } else {
+          showValidation(fullNameValidation, false);
+          showError(fullNameError, 'Full name must be at least 2 characters');
+        }
+        checkFormValidity();
+      });
+
       // Email input validation
       emailInput.addEventListener('input', function() {
         const email = this.value.trim();
@@ -218,6 +255,7 @@
           showValidation(emailValidation, false);
           showError(emailError, 'Please enter a valid email address');
         }
+        checkFormValidity();
       });
 
       // Password input validation
@@ -247,6 +285,7 @@
           strengthFill.className = 'strength-fill ' + getStrengthText(validation.strength).toLowerCase();
           strengthText.textContent = getStrengthText(validation.strength) + ' password';
         }
+        checkFormValidity();
       });
 
       // Password toggle
@@ -256,6 +295,28 @@
         this.style.opacity = type === 'password' ? '1' : '0.5';
       });
 
+      // Check if all form fields are valid
+      function checkFormValidity() {
+        const fullName = fullNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        const termsAccepted = termsCheckbox.checked;
+        
+        const isFullNameValid = fullName.length >= 2;
+        const isEmailValid = validateEmail(email) && !checkEmailExists(email);
+        const isPasswordValid = validatePassword(password).isValid;
+        
+        if (isFullNameValid && isEmailValid && isPasswordValid && termsAccepted) {
+          signUpButton.style.opacity = '1';
+          signUpButton.style.cursor = 'pointer';
+          signUpButton.disabled = false;
+        } else {
+          signUpButton.style.opacity = '0.5';
+          signUpButton.style.cursor = 'not-allowed';
+          signUpButton.disabled = true;
+        }
+      }
+
       // Terms and conditions
       termsCheckbox.addEventListener('change', function() {
         if (this.checked) {
@@ -264,6 +325,7 @@
         } else {
           termsContainer.classList.remove('checked');
         }
+        checkFormValidity();
       });
 
       termsContainer.addEventListener('click', function(e) {
@@ -276,16 +338,21 @@
       // Terms link
       termsLink.addEventListener('click', function(e) {
         e.preventDefault();
-        alert('Terms & Conditions\n\nThis is a demo application. In a real app, this would open the terms and conditions page.');
+        window.location.href = 'terms-conditions.html';
       });
 
       // Sign Up button functionality
       signUpButton.addEventListener('click', function() {
+        const fullName = document.getElementById('fullNameInput').value.trim();
         const email = emailInput.value.trim();
         const password = passwordInput.value;
         const termsAccepted = termsCheckbox.checked;
 
         // Validate form
+        if (!fullName) {
+          showError(document.getElementById('fullNameError'), 'Full Name is required.');
+          return;
+        }
         if (!email || !validateEmail(email)) {
           showError(emailError, 'Please enter a valid email address');
           return;
@@ -313,6 +380,7 @@
         setTimeout(() => {
           // Store new user data
           const newUser = {
+            fullName: fullName,
             email: email,
             password: password, // In real app, this would be hashed
             registrationDate: new Date().toISOString(),
@@ -360,8 +428,10 @@
           emailInput.dispatchEvent(new Event('input'));
         }
       }
+
+      // Initialize button state
+      checkFormValidity();
     });
   </script>
 </body>
-</html>
 </html>

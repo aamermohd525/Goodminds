@@ -3,12 +3,19 @@
   box-sizing: border-box;
 }
 .loading-screen-interactive {
-  background: var(--serenity-green-50, #16572e);
+  background: linear-gradient(120deg, #16572e 0%, #b4c48d 100%);
+  animation: bg-gradient-move 8s ease-in-out infinite alternate;
   flex-shrink: 0;
   height: 812px;
   position: relative;
   overflow: hidden;
 }
+
+@keyframes bg-gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 .vector {
   background: var(--serenity-green-20, #e5ead7);
   border-radius: 50%;
@@ -81,6 +88,30 @@
   left: -28px;
   bottom: -82px;
 }
+.vector, .vector2, .vector3, .vector4 {
+  box-shadow: 0 0 32px 8px rgba(180, 196, 141, 0.25), 0 0 0 0 transparent;
+  animation-name: color-shift, float1;
+  animation-duration: 6s, 4s;
+  animation-iteration-count: infinite, infinite;
+  animation-timing-function: ease-in-out, ease-in-out;
+}
+
+@keyframes color-shift {
+  0% { filter: hue-rotate(0deg) brightness(1.1); }
+  50% { filter: hue-rotate(30deg) brightness(1.2); }
+  100% { filter: hue-rotate(0deg) brightness(1.1); }
+}
+
+.squish {
+  animation: squish 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes squish {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2, 0.8); }
+  100% { transform: scale(1); }
+}
+
 .home-indicator {
   width: 375px;
   height: 34px;

@@ -426,6 +426,13 @@
   width: 343px;
   height: 56px;
   position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-primary-icon:disabled {
+  background: var(--mindful-brown-100-alpha-32, rgba(31, 22, 15, 0.32));
+  cursor: not-allowed;
 }
 .content4 {
   display: flex;
